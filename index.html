@@ -10,15 +10,12 @@ layout: default
         {% for post in site.posts limit:5  %}
         {% unless post.draft %}
 
-
-
-
         <li>
             <div class="article">
                 <article class="article" itemscope itemtype="http://schema.org/BlogPosting">
                     <header class="post-header">
                         <span class="title"><a itemprop="name" href="{{ post.author }}" title="{{ title }}">{{ post.title }}</a></span>
-                        <time class="date" >{{post.date }}</time>
+                        <time class="date" >{{post.menutitle }}</time>
                     </header>
                 </article>
             </div>
