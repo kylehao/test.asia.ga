@@ -7,15 +7,6 @@ layout: default
 
     <h3>玉米熟啦🌽开始卖啦🔥</h3>
     <ul class="category recent-posts">       
-        {% for post in site.posts limit:5  %}
-        {% unless post.draft %}
-
-        {% if post.menutitle %}
-        {% assign title = post.menutitle %}
-        {% else %}
-        {% assign title = post.title %}
-        {% endif %}
-
 
         <li>
             <div class="article">
@@ -28,8 +19,6 @@ layout: default
             </div>
         </li>
 
-        {% endunless %}
-        {% endfor %}
     </ul>
 
 
