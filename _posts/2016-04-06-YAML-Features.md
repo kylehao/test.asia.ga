@@ -4,7 +4,7 @@ title:             "YAML Custom Features"
 menutitle:         "YAML Features"
 date:              2016-04-06 00:40:00 +0300
 tags:              Jekyll YAML Features Explained
-category:          正在出售
+category:          Features
 author:            jwillmer
 cover:             /assets/mountain-alternative-cover.jpg
 published:         true
