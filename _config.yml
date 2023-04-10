@@ -1,23 +1,25 @@
+permalink: /:year:month:day/:title
+url: #Your url here
+baseurl: /project
 
-title: My Resume
-url: 'http://junlulocky.com'
-baseurl: '/PanelCV' #change it according to your repository name
-
-
-
-# Profile information
-yourname: Brown Smith  ## put your name
-title: 'GRAPHIC &amp; WEB DESIGNER'  ## your title
-location: San Francisco , CA
+# variables
+name: Your Site Name
+description: Your description here
+google_verification: null
 
 
-## Social Profiles
-facebook: http://www.facebook.com  ## your facebook account url
-twitter: http://www.twitter.com  ## your twitter account url
-linkedin: http://www.linkedin.com  ## your linkedin account url
-dribbble: http://www.dribble.com  ## you dribbble account url
-foursquare: http://www.foursquare.com  ## your foursquare account url
+# File management
+include: [".htaccess"]
+exclude: ["README.md", "LICENSE"]
 
+# Sass
+sass:
+  style: :compressed
+  sass_dir: _sass
 
-
-# Update all the sections by editing the files inside _includes folder.
+# Markdown
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    disable : true
