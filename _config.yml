@@ -1,12 +1,44 @@
-# Setup
-name:         Project or Site name (Architect Theme)
-tagline:      A responsive theme for your project on GitHub Pages
-baseurl:      ""
-locale:       "en"
+title: Your awesome title
+email: your-email@domain.com
+description: description
+baseurl: /Jekyll-Avalon
+url: http://joshuaavalon.github.io
+twitter_username: joshuaavalon
+github_username:  joshuaavalon
 
-# Gems
+sass:
+  style: compressed
+
+paginate: 12
+paginate_path: "/:num/"
+
+author_img_s: /img/author_s.png
+author_img: /img/author.png
+
+navigation:
+  - text: Home
+    url: /
+  - text: Categories
+    url: /categories.html
+  - text: Tags
+    url: /tags.html
+
+read_more: Read More
+env: production
+minify_html: false # Set to true only when it is production. Increase significant build time.
+
+# Build settings
+markdown: kramdown
+
+sticky: sticky # Tag used for sticky post
+sticky_count: 3 # Number of sticky post shown
+
 gems:
   - jekyll-paginate
-
-#Others
-markdown: kramdown
+  - jekyll-feed
+  
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
