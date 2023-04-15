@@ -1,54 +1,66 @@
 ---
-layout: default
+layout: page
+css: ["index.css"]
 ---
-<section class="hero is-primary">
-    <div class="hero-body">
-        <div class="container is-fluid">
-            <h1 class="title">
-                Blog
-            </h1>
-            <h2 class="subtitle">
-                Keep It Simple, Stupid.
-            </h2>
-        </div>
+<div class="row">
+  {% for post in paginator.posts %}
+  <div class="col s12">
+    <div class="card hoverable">
+      <div class="card-content">
+        <span id="post-title" class="card-title">{{post.title}}</span>
+        <p id="post-date">
+          <i class="material-icons">date_range</i>
+          {{post.date | date: "%d/%m/%Y %H:%M"}}
+        </p>
+        <p id="post-content">{{post.excerpt | remove: '<p>' | remove: '</p>'}}</p>
+      </div>
+      <div class="card-action">
+        <a href="{{post.url | prepend: site.baseurl}}">
+          Read More
+        </a>
+      </div>
     </div>
-</section>
-<section class="section">
-    <div class="container is-fluid">
-        {% for post in paginator.posts %}
-        <div class="card post-card">
-            {% if post.thumbnail %}
-            <div class="card-image">
-                <figure class="image">
-                    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">
-                        <img src="{{ post.thumbnail | prepend: site.baseurl }}" alt="{{ post.title }}">
-                    </a>
-                </figure>
-            </div>
-            {% endif %}
-            <div class="card-content">
-                <h3 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
-                <p class="post-categories">
-                    {% for category in post.categories %}
-                    <a href="/{{ category | prepend: site.baseurl }}" class="tag {% if site.data.category[category].color %} is-{{ site.data.category[category].color }} {% endif %}">{{ category }}</a>
-                    {% endfor %}
-                </p>
-                {{ post.excerpt }}
-                <p><small>02.02.2017 - 06:36</small></p>
-            </div>
-        </div>
-        <br>
-        {% endfor %}
-        <nav class="pagination is-centered">
-            <a {% if paginator.previous_page %}href="..{{  paginator.previous_page_path }}"{% endif %} class="pagination-previous {% if paginator.previous_page %}{% else %} is-disabled {% endif %}">Önceki Yazılar</a>
-            <a {% if paginator.next_page %}href="..{{  paginator.next_page_path }}"{% endif %} class="pagination-next {% if paginator.next_page %}{% else %} is-disabled {% endif %}">Sonraki Yazılar</a>
-            <ul class="pagination-list">
-                {% for page in (1..paginator.total_pages) %}
-                <li>
-                    <a {% if page == paginator.page %}{% else %} href="{% if page == 1 %}../{% else %}{% if paginator.page != 1 %}../{% endif %}{{ page }}{% endif %}" {% endif %} class="pagination-link {% if page == paginator.page %} is-current {% endif %}">{{ page }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        </nav>
-    </div>
-</section>
+  </div>
+  {% endfor %}
+  <div class="col s12 center-align">
+    <ul class="pagination">
+      <li class="{% unless paginator.previous_page %}disabled{% else %}waves-effect{% endunless %}">
+        {% if paginator.previous_page %}
+        {% if paginator.previous_page == 1 %}
+        <a href="{{site.baseurl}}/">
+        {% else %}
+        <a href="{{site.baseurl}}/page{{paginator.previous_page}}">
+        {% endif %}
+        {% else %}
+        <a href="#!">
+        {% endif %}
+          <i class="material-icons">chevron_left</i>
+        </a>
+      </li>
+      {% if paginator.page == 1 %}
+      <li class="active teal">
+        <a href="#!">1</a>
+      {% else %}
+      <li class="waves-effect">
+        <a href="{{site.baseurl}}/">1</a>
+      {% endif %}
+      </li>
+      {% for count in (2..paginator.total_pages) %}
+      {% if count == paginator.page %}
+      <li class="active teal"><a href="#!">{{count}}</a></li>
+      {% else %}
+      <li class="waves-effect"><a href="{{site.baseurl}}/page{{count}}">{{count}}</a></li>
+      {% endif %}
+      {% endfor %}
+      <li class="{% unless paginator.next_page %}disabled{% else %}waves-effect{% endunless %}">
+        {% if paginator.next_page %}
+        <a href="{{site.baseurl}}/page{{paginator.next_page}}">
+        {% else %}
+        <a href="#!">
+        {% endif %}
+          <i class="material-icons">chevron_right</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

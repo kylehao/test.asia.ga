@@ -1,9 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "3.5.2"
-
-group :jekyll_plugins do
-   gem "jekyll-paginate", "~> 1.1.0"
-   gem "jekyll-feed", "~> 0.6"
-   gem "jekyll-gist"
-end
+require 'json'
+require 'open-uri'
+versions = JSON.parse(open('https://pages.github.com/versions.json').read)
+gem 'github-pages', versions['github-pages'], group: :jekyll_plugins
