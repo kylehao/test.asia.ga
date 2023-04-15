@@ -1,27 +1,18 @@
-{% if page.cover %}
-{% assign cover = page.cover %}
-{% elsif site.cover %}
-{% assign cover = site.cover %}
-{% endif %}
-
-<header class="main-header detail-page image-bg {% if cover %} has-cover" style="background-image: url({{ cover | absolute_url }})" {% else %} no-cover" {% endif %}>
-    <h1 class="page-title"><a href="{{ "/" | absolute_url }}" title="{{ site.title }}">{{ site.title }}</a></h1>
-    <h2 class="page-description">{{ site.subtitle }}</h2>
-    <div class="nav">
-            <a class="page-link" href="{{ "/" | absolute_url }}" title="Home">Home</a>
-
-            {% assign pages = site.pages | sort:"weight"  %}
-            {% for my_page in pages %}
-
-            {% if my_page.menutitle %}
-            {% assign title = my_page.menutitle %}
-            {% elsif site.title %}
-            {% assign title = my_page.title %}
-            {% endif %}
-
-            {% if title and my_page.visible != false %}
-            <a class="page-link" href="{{ my_page.url | absolute_url }}" title="{{ title }}">{{ title }}</a>
-            {% endif %}
-            {% endfor %}
-    </div>
-</header>
+<div class="row">
+  <div class="col-md-8 has-space-top has-space-bottom">
+    <a class="lin-logo" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+  </div>
+  <div class="col-md-4 is-flex-center is-flex-end">
+      {%- assign default_paths = site.pages | map: "path" -%}
+      {%- assign page_paths = site.header_pages | default: default_paths -%}
+      {%- assign titles_size = site.pages | map: 'title' | join: '' | size -%}
+    {%- for path in page_paths -%}
+    {%- assign my_page = site.pages | where: "path", path | first -%}
+    {%- if my_page.title -%}
+    
+    <a class="lin-button is-lite" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+    &nbsp;
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+</div>

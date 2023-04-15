@@ -1,42 +1,40 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+title: Your awesome title
+author: GitHub User
+email: your-email@domain.com
+copyright: © 2019 GitHub User
+description: > # this means to ignore newlines until "show_excerpts:"
+  Write an awesome description for your new site here. You can edit this
+  line in _config.yml. It will appear in your document head meta (for
+  Google search results) and in your feed.xml site description.
 
-# Site settings
-title:            jekyllDecent
-subtitle:         Example Blog
-description:      This is the jekyllTheme example blog. It only exists to demonstrate how the theme looks and feels.
-keywords:         demo theme example github jekyll features
-language:         "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
+show_excerpts: false # set to true to show excerpts on the homepage
 
-baseurl:          "/jekyllDecent" # the subpath of your site, e.g. /blog
-url:              "" # the base hostname & protocol for your site. Have a look at robots.txt as well!
-permalink:        /blog/:categories/:title
-cover:            /assets/mountain-cover.jpg
-disqus_shortname: "jekylldecent"
+lin:
+  date_format: "%b %-d, %Y"
 
-# Build settings
-sass:
-    style: compressed
-markdown: kramdown
-kramdown:
-  syntax_highlighter_opts:
-    disable: true
-include: ['_pages']
-exclude: [vendor, "developer-tools"]
+  # path to the author avatar image
+  avatar_path: assets/images/avatar.jpg
+
+  # generate social links
+  social_links:
+    twitter: jekyllrb
+    github:  jekyll
+    medium:  jekyll
+    rss: rss
+    dribbble: jekyll
+    facebook: jekyll
+    flickr:   jekyll
+    instagram: jekyll
+    linkedin: jekyll
+    pinterest: jekyll
+    youtube_user: jekyll
+    youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
+    telegram: jekyll
+    googleplus: +jekyll
+    keybase: jekyll
+
+theme: lin
+
 plugins:
-  - jekyll-mentions
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-redirect-from
-
-compress_html:
-  clippings: all
-  comments: ["<!-- ", " -->"]
-  ignore:
-    envs: [local]
-  blanklines: true
-  startings: [head, body]
+ - jekyll-feed
+ - jekyll-seo-tag

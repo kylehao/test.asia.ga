@@ -1,17 +1,22 @@
----
-layout: compress
----
 <!DOCTYPE html>
-<html lang="{% if page.language %}{{ page.language | downcase }}{% else %}{{ site.language | downcase }}{% endif %}">
-{% include head.html %}
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-<body class="home-template">
-    <div class="site-wrapper">
-        {% include header.html %}
-        {{ content }}
-        {% include footer.html %}
+{%- include head.html -%}
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        {%- include header.html -%}
+      </div>
+      <div class="col-md-12">
+        <div class="lin-card">
+          {{ content }}
+        </div>
+      </div>
+      <div class="col-md-12">
+        {%- include footer.html -%}
+      </div>
     </div>
+  </div>
 </body>
-
-{% include global.html %}
 </html>

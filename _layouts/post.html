@@ -1,37 +1,35 @@
 ---
 layout: default
 ---
-<main class="content" role="main">
-    <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="row">
+    <div class="col-md-2 col-sm-12 is-hover-opaque">
+      <p class="has-space-top">
+        <time datetime="{{ page.date | date_to_xmlschema }}">
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          {{ page.date | date: date_format }}
+        </time>
+        {%- if page.author -%}
+        <br><span>{{ page.author | escape }}</span>
+        {%- endif -%}</p>
+    </div>
+    <div class="col-md-10 col-sm-12">
+      <h1>{{ page.title | escape }}</h1>
+    </div>
+  </header>
 
-        <header class="post-header short-diver">
-            <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
-            <section class="post-meta">
-                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
-                on
-                {% for tag in page.tags limit:5 %}
-                <span>{{ tag }}</span>
-                {% endfor %}
-            </section>
-        </header>
+  <div class="row">
+    <div class="col-md-2 col-sm-12">
+      &nbsp;
+    </div>
+    <div class="col-md-10 col-sm-12 has-space-top has-space-bottom">
+      {{ content }}
+    </div>
+  </div>
 
-        <section class="post-content short-diver" itemprop="articleBody">
-            {{content}}
-        </section>
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
 
-        <footer class="post-footer">
-            {% include authorinfo.html param=page.author %}
-        </footer>
-
-        {% if page.comments %}
-    		<div class="comments">
-    			<a href="javascript:;" class="view-comments"><i class="fa fa-comments"></i>View Comments...</a>
-    			<div id="disqus_thread"></div>
-    		</div>
-    		{% endif %}
-
-    </article>
-</main>
-
-{% include photoswipe.html %}
-{% include post_scripts.html %}
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
