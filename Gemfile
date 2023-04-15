@@ -1,8 +1,10 @@
-source 'https://rubygems.org'
+source 'https://rubygems.org/'
 
-gem 'json', github: 'flori/json', branch: 'v1.8'
-gem 'rough'
-gem 'jekyll-paginate'
-gem 'jekyll-geo-pattern'
-gem 'kramdown'
-gem 'jekyll-github-metadata'
+gem 'jekyll', '>=3.8.6'
+
+group :jekyll_plugins do
+  gem 'jekyll-paginate'
+  gem 'jekyll-sitemap'
+  gem 'jekyll-feed'
+  gem 'jekyll-seo-tag'
+end
