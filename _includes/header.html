@@ -1,18 +1,34 @@
-<aside class="main-header">
-  <header class="module">
-    <h1><a href="/">{{ site.title }}</a></h1>
-  </header>
-  <div class="module color2">
-    {{ site.description }}
-  </div>
-  <nav class="module color4">
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-  <div class="module color3">
-    github/{{ site.github }}
-    <br>twitter/{{ site.twitter }}
-    <br>{{ site.email }}
-  </div>
-</aside>
+    <header>
+        <nav class="navbar navbar-tiffany rectangle" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{ site.baseurl | prepend: site.url }}/">{{ site.title }}</a>
+                    <p class="navbar-text">{{ site.description }}</p>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        {% if page.url == "/index.html" %}
+                        <li class="active">{% else %}
+                        <li>{% endif %}
+                        <a href="{{ site.baseurl | prepend: site.url }}/" class="word-keep"><span class="octicon octicon-book"></span></span>&nbsp;&nbsp;Blog</a>
+                        </li>
+                        {% for p in site.pages %}{% if p.isNavItem %}
+                        {% if p.url == page.url %}
+                        <li class="active">{% else %}
+                        <li>{% endif %}
+                            <a href="{{ p.url | prepend: site.baseurl | prepend: site.url }}" class="word-keep"><span class="octicon {{ p.icon }}"></span>&nbsp;&nbsp;{{ p.title }}</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        <li><a href="#stq=" class="search-button"><span class="octicon octicon-search"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
