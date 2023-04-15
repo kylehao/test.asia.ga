@@ -1,22 +1,37 @@
 ---
-layout: base
+layout: default
 ---
-{% if page.cover %}
-<div class="row">
-{% img page.cover cover %}
-</div>
-{% endif %}
-<div class="row">
-<h2>{{ page.title }}</h2>
-<div class="valign-wrapper">
-<div class="author"><img src="{{ site.author_img | prepend: site.baseurl }}" class="circle responsive-img"></div> {% for category in page.categories %}<h5><a href="{{ category | prepend: '/categories/' | prepend: site.baseurl }}">{{ category }}</a>{% unless forloop.last%}, {% endunless %}{% endfor%} - {{ page.date | date: "%m/%d/%Y" }}</h5>
-</div>
-    {% for tag in page.tags %}
-    {% if tag != site.sticky %}
-    <a href="{{ tag | prepend: '/tags/' | prepend: site.baseurl }}"><div class="chip waves-effect waves-red">{{ tag }}</div></a>
-    {% endif %}
-    {% endfor %}
-</div>
-<div class="row">
-{{ content }}
-</div>
+<main class="content" role="main">
+    <article class="post single-post" itemscope itemtype="http://schema.org/BlogPosting">
+
+        <header class="post-header short-diver">
+            <h1 class="post-title" itemprop="name headline">{{ page.title }}</h1>
+            <section class="post-meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+                on
+                {% for tag in page.tags limit:5 %}
+                <span>{{ tag }}</span>
+                {% endfor %}
+            </section>
+        </header>
+
+        <section class="post-content short-diver" itemprop="articleBody">
+            {{content}}
+        </section>
+
+        <footer class="post-footer">
+            {% include authorinfo.html param=page.author %}
+        </footer>
+
+        {% if page.comments %}
+    		<div class="comments">
+    			<a href="javascript:;" class="view-comments"><i class="fa fa-comments"></i>View Comments...</a>
+    			<div id="disqus_thread"></div>
+    		</div>
+    		{% endif %}
+
+    </article>
+</main>
+
+{% include photoswipe.html %}
+{% include post_scripts.html %}

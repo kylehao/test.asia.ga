@@ -1,44 +1,42 @@
-title: Your awesome title
-email: your-email@domain.com
-description: description
-baseurl: /Jekyll-Avalon
-url: http://joshuaavalon.github.io
-twitter_username: joshuaavalon
-github_username:  joshuaavalon
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
 
-sass:
-  style: compressed
+# Site settings
+title:            jekyllDecent
+subtitle:         Example Blog
+description:      This is the jekyllTheme example blog. It only exists to demonstrate how the theme looks and feels.
+keywords:         demo theme example github jekyll features
+language:         "en" # default language of the blog. Language codes: http://www.w3schools.com/tags/ref_language_codes.asp
 
-paginate: 12
-paginate_path: "/:num/"
-
-author_img_s: /img/author_s.png
-author_img: /img/author.png
-
-navigation:
-  - text: Home
-    url: /
-  - text: Categories
-    url: /categories.html
-  - text: Tags
-    url: /tags.html
-
-read_more: Read More
-env: production
-minify_html: false # Set to true only when it is production. Increase significant build time.
+baseurl:          "/jekyllDecent" # the subpath of your site, e.g. /blog
+url:              "" # the base hostname & protocol for your site. Have a look at robots.txt as well!
+permalink:        /blog/:categories/:title
+cover:            /assets/mountain-cover.jpg
+disqus_shortname: "jekylldecent"
 
 # Build settings
+sass:
+    style: compressed
 markdown: kramdown
-
-sticky: sticky # Tag used for sticky post
-sticky_count: 3 # Number of sticky post shown
-
-gems:
-  - jekyll-paginate
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+include: ['_pages']
+exclude: [vendor, "developer-tools"]
+plugins:
+  - jekyll-mentions
   - jekyll-feed
-  
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
-  - LICENSE
+  - jekyll-sitemap
+  - jekyll-redirect-from
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  ignore:
+    envs: [local]
+  blanklines: true
+  startings: [head, body]
