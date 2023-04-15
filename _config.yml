@@ -1,109 +1,63 @@
-# Site configuration
-# 1. Files excluded from Jekyll builds
-# 2. Installed Gems
-# 3. Gem settings
-# 4. Jekyll settings
-# 5. Collections
-# 6. Jekyll collections settings
-# 7. Site settings
-# 8. Site navigation
-
-# 1. Files excluded from Jekyll builds
-exclude:
-- README.md
-- screenshot.png
-- LICENSE
-- CNAME
-- Gemfile
-- Gemfile.lock
-
-# 2. Installed Gems
-gems:
-- jekyll-sitemap
-- jekyll-mentions
-- jekyll-paginate
-- jekyll-seo-tag
-- jekyll-redirect-from
-- jekyll-feed
-- jemoji
-
-theme: alembic-jekyll-theme
-
-# 3. Gem settings
-paginate: 10 # jekyll-paginate > items per page
-paginate_path: blog/page:num # jekyll-paginate > blog page
-# jekyll-mentions: https://twitter.com # jekyll-mentions > service used when @replying
-# twitter:
-#   username: DavidDarnes # jekyll-seo-tag > Owners twitter username
-# author: DavidDarnes # jekyll-seo-tag > default author
-# social: # jekyll-seo-tag > social overrides
-#   name: David Darnes # jekyll-seo-tag > real name
-#   links:  # jekyll-seo-tag > social aliases (sameAs)
-#     - https://twitter.com/DavidDarnes
-#     - https://www.facebook.com/daviddarnes
-#     - https://www.linkedin.com/in/daviddarnes
-#     - https://plus.google.com/+DavidDarnes
-#     - https://github.com/daviddarnes
-
-# 4. Jekyll settings
-sass:
-  style: compressed # Style compression
-permalink: pretty  # Permalink style (/YYYY/MM/DD/page-name/)
-excerpt_separator: <!-- more --> # Marks end of excerpt in posts
-timezone: China/Shanghai # Timezone for blog posts and alike
-
-# 5. Collections
-collections:
-  posts:
-    title: Posts # Needed for Siteleaf
-    output: true
-    description: "My thoughts and ideas" # The post list page content
-    feature_text: |
-      Welcome to the blog
-    feature_image: "/sources/imgs/note.jpeg"
-    # feature_image: "https://unsplash.it/1300/400?image=1067"
-
-# 6. Jekyll collections settings
-defaults:
-  -
-    scope:
-      path: ""
-      type: pages
-    values:
-      layout: page # Default layout
-      image: "/assets/placeholder-social.png" # Default image for sharing
-  -
-    scope:
-      path: ""
-      type: posts
-    values:
-      layout: post # Default layout
-      image: "/assets/placeholder-social.png" # Default image for sharing
-
-# 7. Site settings
-encoding: utf-8 # Make sure the encoding is right
-title: "星辰大海" # Site name or title, also used in jekyll-seo-tag
-logo: "/assets/placeholder-logo.svg" # Site logo, also used in jekyll-seo-tag
-description: "代码如诗，星辰大海" # Site description and default description, also used in jekyll-seo-tag
-url: "http://blog.speedupme.com" # Site url, also used in jekyll-seo-tag
-# repo: "https://github.com/daviddarnes/alembic"
-email: "case2111@gmail.com"
-# disqus: "daviddarnes"
-# avatarurl: "https://www.gravatar.com/avatar/6c0377abcf4da91cdd35dea4554b2a4c" # Uses avatars for favicons to get multple sites, eg Gravatar, Twitter, GitHub
-
-# 8. Site navigation
-navigation_header:
-  Home: /
-  # Elements: /elements/
-  Blog: /blog/
-  # Fork Alembic: https://github.com/daviddarnes/alembic
-
-navigation_footer:
-  Powered by Jekyll: http://blog.speedupme.com/blog
+# Welcome to Jekyll!
 #
-# social_links:
-#   Twitter: https://twitter.com/DavidDarnes
-#   LinkedIn: https://www.linkedin.com/in/daviddarnes
-#   GooglePlus: https://plus.google.com/+DavidDarnes
-#   GitHub: https://github.com/daviddarnes
-#   link: https://darn.es
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+title: HyG
+brief-intro: Front-end Dev Engineer
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://gaohaoyang.github.io" # the base hostname & protocol for your site
+
+permalink: /:year/:month/:day/:title/
+
+# other links
+twitter_username:
+facebook_username: gaohaoyang.water
+github_username:  Gaohaoyang
+email: gaohaoyang126@126.com
+weibo_username: 3115521wh
+zhihu_username: gaohaoyang
+linkedIn_username: gaohaoyang
+dribbble_username:
+
+description_footer: 本站记录我前端之旅的沿途风景！
+
+# comments
+# two ways to comment, only choose one, and use your own short name
+# 两种评论插件，选一个就好了，使用自己的 short_name
+duoshuo_shortname: #hygblog
+disqus_shortname: gaohaoyang
+
+# statistic analysis 统计代码
+# 百度统计 id，将统计代码替换为自己的百度统计id，即
+# hm.src = "//hm.baidu.com/hm.js?xxxxxxxxxxxx";
+# xxxxx字符串
+baidu_tongji_id: cf8506e0ef223e57ff6239944e5d46a4
+google_analytics_id: UA-72449510-4 # google 分析追踪id
+
+# Build settings
+markdown: kramdown
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# port
+# port: 1234
+
+# url
+category_dir: category/
+tag_dir: tag/
+
+# excerpt
+excerpt_separator: "\n\n\n\n"
+
+# paginate
+gems: [jekyll-paginate]
+paginate: 10
+
+plugins:
+  - jekyll-paginate
