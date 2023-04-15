@@ -1,16 +1,11 @@
 ---
-layout: post
+layout: page
 title: About
 permalink: /about/
-img: bheema-2.PNG
 ---
 
-In the Hindu epic Mahabharata, Bheema, is the second of the Pandavas. The Mahabharata relates many events which portray the immense might of Bheema. Bhima is responsible for slaying all hundred Kaurava brothers in the Kurukshetra War.
+This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
 
-At the time Bhima kills the rakshasa(evil) Hidimba, he meets his sister Hidimbi; they eventually get married and have a son, [Ghatotkacha](http://webjeda.com/gatok/about/). 
+You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
 
-
-<iframe class="video" src="https://www.youtube.com/embed/6qqIy97WbGA" frameborder="0" allowfullscreen></iframe>
-
-
-Find more themes: [https://jekyll-themes.com](https://jekyll-themes.com){: target="_blank"}
+You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)

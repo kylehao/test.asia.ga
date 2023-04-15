@@ -1,26 +1,12 @@
 ---
+layout: default
 ---
-<!DOCTYPE html>
-<html>
-{% include head.html %}
-<body>
-<div class="container partition">
-{% include nav-page.html %}
-{% if page.img %}
-<div class="page-image" style="background-image: url({{site.baseurl}}/img/{{page.img}})"></div>
-{% else %}
-{% endif %}
-       <div class="row" style="margin-top: 2em">
-        <div class="container page-container">
-       
-           <h1 class="page-title">{{page.title}}</h1>
-         
-          {{ content }}
-          
-          </div>
-    </div>
-{% include footer.html %}
-</div>
 
-</body>
-</html>
+<article class="color3 module">
+  <a href="{{ page.url }}"><h1>{{ page.title }}</h1></a>
+  <hr>
+  <time>{{ page.date | date: "%b %-d, %Y" }}{% if page.author %} • {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</time>
+  {{ content }}
+</article>
+
+{% include disqus.html %}

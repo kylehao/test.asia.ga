@@ -1,18 +1,15 @@
-#Created by webjeda - http://webjeda.com
+# Site settings
+title:        "block-Log"
+description:  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor"
+baseurl:      "" # the subpath of your site, e.g. /blog/
+url:          "http://yourdomain.com" # the base hostname & protocol for your site
+permalink:    /:year/:title
+github:       "yourusername"
+twitter:      "yourusername"
+email:        "mail@example.com"
+disqus-id:    "example" #leave blank if you dont want comments.
 
-title: Bheema #Keep it short
-email: your@email.com
-
-
-#baseurl: /bheema
-
+# Build settings
+markdown:     kramdown
 sass:
- style: compressed
- 
- 
-# Tracker
-analytics: UA-83979019-1
- 
-### exclude the instructions / write-up in the README.md
-exclude:
-- README.md
+    style: :compressed
