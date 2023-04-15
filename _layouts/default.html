@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-GB">
+	<head>
+		<!-- General meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% include head.html %}
+		{% if page.indexing == false %}
+			<meta name="robots" content="noindex">
+		{% endif %}
 
-<body>
+		{% if page.collection %}
+			{% seo title=false %}
 
-{% include header.html %}
+			{% assign collectiondata = site.collections | where: "label", page.collection | first %}
+			<title>{{ collectiondata.title }} - {{ site.title }}</title>
+		{% else %}
+			{% seo %}
+		{% endif %}
 
-<div class="main">
-    <div class="container">
-        {{ content }}
-    </div>
-    <div class="page-scrollTop" data-toggle="tooltip" data-placement="top" title="Top">
-        <a href="javascript:void(0);">
-            <div class="arrow"></div>
-            <div class="stick"></div>
-        </a>
-    </div>
-</div>
+    <link rel="stylesheet" href="{{ "/assets/styles.css" | relative_url }}">
 
-{% include footer.html %}
+		{% include site-favicons.html %}
+	</head>
+	<body>
+		{% include site-icons.svg %}
 
-</body>
+		{{ content }}
+
+	</body>
 </html>
