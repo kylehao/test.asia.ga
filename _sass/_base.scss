@@ -1,211 +1,80 @@
-
-*{
-    -webkit-transition: all 0.2s; /* Safari */
-    -webkit-transition-timing-function: linear; /* Safari */
-    transition: all 0.2s;
-    transition-timing-function: linear;
-      }
+/*
+  Base
+*/
 
 body {
-         background: #fff;
-         font-family: $base-font-family;
-         font-size: 15px;
-         font-weight: 300;
-         overflow-x: hidden;
-         color: $text-color;
-         line-height: 1.6;
-         @include media-query($on-palm) {
-          padding: 10px;        
-    }
-         
+  font-family: $serif-font-family;
+  font-size: 18px;
+  color: $body-color;
+  line-height: 1.75rem;
 }
 
-
-::-webkit-scrollbar {
-    -webkit-appearance: none;
-    height: 5px;
-    width: 10px;
-}
-::-webkit-scrollbar-thumb {
-    background-color: $text-color;
-}
-::-webkit-scrollbar-track {
-    background-color: #EEE;
+@media (max-width: $elements-responsive-width) {
+  body {
+    font-size: 14px;
+    line-height: 1.5rem;
+  }
+  body h1 {
+    font-size: 1.5rem;
+  }
 }
 
+h1{
+  font-size: 2rem;
+}
+
+h1 a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sans-serif-font-family;
+  color: $dark-gray-color;
+}
 
 a {
-    color: $brand-color;
-    text-decoration: none;
-    &:hover {
-        color: $highlight-color;
-    }
+  text-decoration: underline;
+  color: $dark-gray-color;
 }
 
-
-/**
- * Set `margin-bottom` to maintain vertical rhythm
- */
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-ul, ol, dl, figure,
-%vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+a:hover {
+  color: $link-color;
+  border-bottom: none;
 }
 
-h1,h2,h3,h4,h5,h6 {
-    font-family: $head-font-family;
-    font-weight: 700;
-    margin: 0;
-    line-height: 1.8;
-}
-
-
-/**
- * Headings
- */
-h1{
-    font-size: 2.2em;
-    @include media-query($on-laptop) {
-        font-size: 2em;
-    }
-}
-h2{
-    font-size: 1.6em;
-    @include media-query($on-laptop) {
-        font-size: 1.2em;
-    }
-}
-
-h3{
-    font-size: 1.2em;
-    @include media-query($on-laptop) {
-        font-size: 0.9em;
-    }
-}
-
-h4 {
-        font-size: 1em;
-    @include media-query($on-laptop) {
-        font-size: 0.8em;
-    }
-}
-
-h5{
-        font-size: 0.9em;
-    @include media-query($on-laptop) {
-        font-size: 0.7em;
-    }
-    
-}
-
-
-
-
-/**
- * Images
- */
 img {
-    max-width: 100%;
-    vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
 }
 
-
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-     @include media-query($on-palm) {
-                font-size: 12px;
-                }
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-            @include media-query($on-palm) {
-                font-size: 12px;
-                }
-    }
-}
-
-
-
-/**
- * Blockquotes
- */
 blockquote {
-    color: $brand-color;
-    border-left: 4px solid $brand-color;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-    font-family: monospace;
-    > :last-child {
-        margin-bottom: 0;
-    }
+  margin: 10px 20px 10px;
+  padding: 0px 15px;
+  border-left: 0.25em solid $extra-light-gray-color;
+  color: $light-gray-color;
+  line-height: 1.5;
 }
 
-
-
-/**
- * Code formatting
- */
-pre,
-code {
-    font-size: 15px;
-    border-radius: 3px;
+hr {
+  border-top: 1px solid $extra-light-gray-color;
 }
 
-code {
-    padding: 1px 5px;
-    border: 1px solid $brand-color;
+/*
+  Tables
+*/
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  width: 100%;
 }
 
-pre {
-    padding: 8px 12px;
-    overflow-x: auto;
-    border: 1px solid $brand-color;
-
-    > code {
-        border: 0;
-        padding-right: 0;
-        padding-left: 0;
-    }
+table, th, td {
+  border: 1px solid black;
 }
 
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
+th, td {
+  padding: 15px;
+  text-align: left;
 }

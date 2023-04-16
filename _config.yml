@@ -1,45 +1,29 @@
+# Site Build Settings
 
-title: Karna
-desctiption: Karna is a responsive jekyll theme which includes pinterest like pins.
-url: http://webjeda.com/
-permalink: ':title/'
+# Jekyll-paginate-v2 configuration
+#  pagination:
+#   enabled: true
+#   per_page: 5
+#   permalink: '/page/:num/'
+#   title: ':title - page :num of :max'
+#   limit: 0
+#   sort_field: 'date'
+#   sort_reverse: true
 
-markdown: kramdown
-#baseurl: "/karna"
-full-version: "http://webjeda.com/karna-full/"
+# jekyll-paginate configuration
+paginate:            5
 
-sass:
-    style: compressed
+# Build settings
+markdown:            kramdown
+highlighter:         rouge
+permalink:           /:title
+plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-tag]
 
-  
-#optimization
-#compress.html
-compress_html:
-  clippings: [html,div, p, ul, td, h1, h2, h3, h4,link, meta, footer, nav, img, header, hr, br, head, style, li, ul, ol, time, main, script, title]
-  comments: ["<!-- ", " -->"]
-  endings: [all]
-  ignore:
-    envs: [local]
-  blanklines: false
-  profile: false
-  startings: []
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+title:		           'Lagrange'
+description:	       'a minimalist Jekyll theme'
+author:              'Paul Le'
 
-highlight: rouge
-
-
-# Tracker
-analytics: UA-83979019-1
-
-# Comments
-disqus-shortname: webjeda-demo
-
-# Contact form
-# Go to https://getsimpleform.com and get a API token by signing up with your email and enter that here
-api-token:   
-
-include: [_pages]
-version: 0.8
-
-plugins: 
-    - jekyll-paginate
-    - jekyll-seo-tag
+# RSS 2.0 can be used instead of Atom by uncommenting following two lines
+#feed:
+#  path: rss-feed.xml
