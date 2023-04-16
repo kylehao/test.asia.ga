@@ -1,88 +1,67 @@
 # Site settings
-title: "MADness"
-description: A Template for Jekyll
 
-# Files
-baseurl:
-pagesdir: pages
-assets:
-  libs: assets/libs
-  owner: assets/owner
-logo: logo.png
-discus_shortname: MADness
-email: mad@ness.com
-url: "./"
-search: true
-share: true
-comments: true
+author: Yourname
+email: example@email.com
+twitter_username: twitter
+github_username:  github
+googleplus_username: google
 
-# Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
-readtime: true
+head-title: Your blog
+title: Your blog
 
-# Specify the average Words per minute. If not defined, 180 will be used
-wpm: 200
+baseurl: "/materialize-jekyll"    # the subpath of your site, "/blog"
+url: ""
 
-# Owner/author information
-owner:
-  name:   MADness
-  avatar: avatar.jpg
-  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    MAD for Jekyll
+# footer 
+description: "I know that what I'm doing looks stupid, but I'm a big boy and really want to do this."
 
-# Social networking links used in footer. Update and remove as you like.
-twitter_username: MAD4Jekyll
-facebook_username: MAD4Jekyll
-github_username: MAD4Jekyll
-deviantart_username: MAD4Jekyll
-500px_username: MAD4Jekyll
-flickr_username: MAD4Jekyll
-instagram_username: MAD4Jekyll
-
- 
-# Internal nav
-nav:
- writing: "root_url/writing/"
- gallery: "root_url/gallery/"
- about: "root_url/about/"
+favo: "春梦随云散，飞花逐水流"
+descrpt: "“巧者劳而智者忧，无能者无所求，饱食而遨游，泛若不系之舟”  ——《南华经》"
 
 
-# Server
-destination:      	 ./_site
-port:             	 4000
-
-
-#dependencies
-# Gems
-gems:
-  - jekyll-paginate
-
-
+#
 # Build settings
-highlighter:         rouge
-markdown:           kramdown
+#
+
+#exclude: [vendor]
+
+markdown: kramdown
+highlighter: rouge
+
 kramdown:
-    extensions:     
-     - Hard_wrap
-     - no_intra_emphasis
-     - strikethrough
-     - fenced_code_blocks
-     - autolink
-     - tables
-     - with_toc_data
-     - highlight
-     - footnotes
-    input:          GFM
+  input: GFM
+  hard_wrap: false
+  highlight: true
+  auto_ids:  true
+
 sass:
-    style:          :compressed
-paginate: 5
-paginate_path: "/writing/page:num/"
-permalink: "/writing/:title/"
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-slugify: "pretty"
+  style: compressed
+
+permalink: /posts/:categories/:title.html
+
+paginate: 7
+#paginate_path: 'page/:num'
+
+gems: [jekyll-paginate, jekyll-last-modified-at, jemoji]
 
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:   UA-xxxxxxxx-x
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+#
+# Custom
+#
+
+# Color
+# All css class, see: http://materializecss.com/color.html
+header-color: "indigo lighten-1"
+head-theme-color: "#5c6bc0"     # MUST in hex format, may the same as header-color. This color is for android chrome browser.
+
+footer-color: "indigo lighten-1"
+footer-button-color: "indigo lighten-2"
+footer-link-color: "red-text text-accent-1"
+
+share-button-color: "pink"
+share-button-small-color: ""
+
+
+##
+#excerpt_separator: <!-- excerpt_end -->       # for post.excerpt
+
