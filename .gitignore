@@ -1,5 +1,6 @@
 *~
-.sass-cache/
+*.gem
+.bundle
+.sass-cache
 _site
-google-analytics.js
-.env
+Gemfile.lock
