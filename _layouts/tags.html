@@ -1,50 +1,40 @@
 ---
+layout: page
 title: Tags
-layout: default
+tagline: （ • ̀ω•́ ） 这里竟然是标签哎！
 ---
+<article>
 
-{% include header.html %}
+  <div>
 
-<div class="g-banner tags-banner {{ site.postPatterns | prepend: 'post-pattern-' }} {{ site.theme-color | prepend: 'bgcolor-' }}" data-theme="{{ site.theme-color }}">
-    <h2>TAGS</h2>
-</div>
+{% capture site_tags %}{% for tag in site.tags %}{{ tag | first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+{% assign tag_words = site_tags | split:',' | sort %}
 
-<main class="tags-content">
+<!-- 遍历所有有标签的文章并列出标题 -->
+{% for item in (0..site.tags.size) %}
+  {% unless forloop.last %}
+    {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
+    <h2 id="{{ this_word | cgi_escape }}" class="tag-title">
+      #{{ this_word }}
+    </h2>
+    <!-- lists all posts corresponding to specific tag -->
+    {% for post in site.tags[this_word] %}
+      {% if post.title != null %}
+        <div class="tagged-post">
+          <h3 class="title">
+            <a href="{{ post.url | relative_url }}">
+              {{ post.title }}
+            </a>
+          </h3>
+          <div class="meta">
+            {{ post.date | date: "%B %-d, %Y" }}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endunless %}
+{% endfor %}
 
-    <ul class="tags-list">
-        
-        {% assign max_tag_count = 0 %}
-        {% for tag in site.tags %}
-            {% if tag[1].size > max_tag_count %}
-            {% assign max_tag_count = tag[1].size %}
-            {% endif %}
-        {% endfor %}
+  </div>
 
-        <li>
-        {% for i in (1..max_tag_count) reversed %}
-            {% for tag in site.tags %}
-                {% if tag[1].size == i %}
-                    <a href="{{ page.url }}.html#{{ tag[0] }}" class="tag">
-                    {{ tag[0] }}<sup>{{ i }}</sup>
-                    </a>
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
-        </li>
-        {% for i in (1..max_tag_count) reversed %}
-            {% for tag in site.tags %}
-                {% if tag[1].size == i %}
-                    <li>
-                        <span class="tag-name" id="{{ tag[0] }}">「{{ tag[0] }}」</span>
-                        {% for post in tag[1] %}
-                        <a class="tag-post" href="{{ post.url | relative_url }}" title="{{ post.title }}">{{ post.title }}</a>
-                        {% endfor %}
-                    </li>
-                {% endif %}
-            {% endfor%}
-        {% endfor%}
-        
-    </ul>
-</main>
-    
-{% include footer.html %}
+</article>
