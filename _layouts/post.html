@@ -1,44 +1,81 @@
 ---
-layout: default
-markdown: true
+layout: framework
+banner:
+banner_html: post-header.html
+hidden: []
+sidebar:
+  - article-menu
 ---
-<div class="row">
-  <div id="markdown-container" class="col-lg-9">
-    <header>
-      <p id="post-title">{{ page.title | replace: "_", " " | capitalize}}</p>
-      {% if page.tags %}
-      <ul class="tags clearfix">
-        {% for tag in page.tags %}
-        <li><i class="fa fa-tag"></i> {{ tag }}</li>
-        {% endfor %}
+
+<div class="post">
+  <section>
+
+    {%- assign name = 'banner' -%}
+    {%- include functions.html func='get_value' -%}
+    {%- assign banner = return -%}
+
+    {%- assign name = 'hidden' -%}
+    {%- include functions.html func='get_value' -%}
+    {%- assign hidden = return -%}
+
+    {%- assign result = hidden | where_exp: "item", "item == 'header'" -%}
+    {%- if banner == nil and result.size == 0 -%}
+    {%- include views/post-header.html -%}
+    {%- endif -%}
+
+    {%- include views/article.html -%}
+
+    {%- assign result = hidden | where_exp: "item", "item == 'navigator'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-nav">
+      {%- if page.previous -%}
+        <a class="previous" href="{{ page.previous.url | relative_url }}" title="{{
+          page.previous.title | escape }}">{{ page.previous.title | escape | truncatewords: 6 }}</a>
+      {%- else -%}
+      <span></span>
+      {%- endif -%}
+
+      {%- if page.next -%}
+        <a class="next" href="{{ page.next.url | relative_url }}" title="{{ page.next.title | escape }}">{{ page.next.title | escape | truncatewords: 6 }}</a>
+      {%- else -%}
+      <span></span>
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+
+    {%- assign result = hidden | where_exp: "item", "item == 'related_posts'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        {% assign posts = site[page.collection] | sample:4 %}
+        {%- for post in posts -%}
+        <li><a class="post-link" href="{{post.url | relative_url}}" title="{{ page.next.title | escape }}">{{ post.title | escape | truncatewords: 12 }}</a></li>
+        {%- endfor -%}
       </ul>
-      {% endif %}
+    </div>
+    {%- endif -%}
 
-      <p id="post-meta">
-      posted
-      {% if page.date %}
-         on <b>{{ page.date | date_to_string }}</b>
-      {% endif %}
-      {% if page.categories[0] %}
-        under category <b>{{ page.categories | join: ", " }}</b>
-      {% endif %}
-      {% unless page.collection == 'posts'  %}
-        in series <b>{{ page.collection }}</b>
-      {% endunless %}
-      </p>
-    </header>
+    {%- assign result = hidden | where_exp: "item", "item == 'comments'" -%}
+    {%- if result.size == 0 -%}
+    <div class="post-comments">
+      {%- if page.comments != false -%}
 
-    {{ content }}
-  </div>
+      {%- if site.disqus.shortname -%}
+      {%- include extensions/comments/disqus.html -%}
+      {%- endif -%}
 
-  <div id="markdown-outline" class="col-lg-3">
-  </div>
+      {%- if site.gitment.username -%}
+      {%- include extensions/comments/gitment.html -%}
+      {%- endif -%}
 
-  {% if site.disqus.comments %}
-    {% include disqus.html %}
-  {% endif %}
+      {%- if site.utterances.repo -%}
+      {%- include extensions/comments/utterances.html -%}
+      {%- endif -%}
 
-  {% if site.gitalk.comments %}
-    {% include gitalk.html %}
-  {% endif %}
+      {%- endif -%}
+    </div>
+    {%- endif -%}
+
+  </section>
 </div>
