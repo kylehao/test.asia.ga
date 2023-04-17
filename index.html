@@ -1,61 +1,14 @@
 ---
-layout: default
-title: Home
+layout: homepage
+title: Mere Blog Theme
+subtitle: This is the demo site for the Mere Blog Theme
+image: /img/home.jpg
+hero_image: /img/home.jpg
+hero_height: is-large
 ---
 
-{% if page.url == "/" %}
+## Mere Blog Theme
 
-<!-- Featured
-================================================== -->
-<section class="featured-posts">
-    <div class="section-title">
-        <h2><span>Featured</span></h2>
-    </div>
-    <div class="row">
+Mere is a minimal and simple blog theme, and nothing more, for use with Jekyll and GitHub Pages.
 
-    {% for post in site.posts %}
-
-        {% if post.featured == true %}
-
-            {% include featuredbox.html %}
-
-        {% endif %}
-
-    {% endfor %}
-
-    </div>
-</section>
-
-{% endif %}
-
-<!-- Posts Index
-================================================== -->
-<section class="recent-posts">
-
-    <div class="section-title">
-
-        <h2><span>All Stories</span></h2>
-
-    </div>
-
-    <div class="row listrecent">
-
-        {% for post in paginator.posts %}
-
-        {% include postbox.html %}
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<div class="pointerup"><i class="fa fa-caret-up"></i></div>
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
-</div>
-
+This is the homepage, it has some space at the top to display your introduction text and then it displays the latest 6 posts below.

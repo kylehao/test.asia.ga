@@ -1,5 +1,8 @@
-_site
-.DS_Store
-*.swp
+*.gem
+.bundle
 .sass-cache
-*~
+_site
+Gemfile.lock
+.DS_Store
+.idea
+.jekyll-cache
