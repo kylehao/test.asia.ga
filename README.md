@@ -1,53 +1,23 @@
-# Jekyll-Avalon
-[Demo](http://joshuaavalon.github.io/Jekyll-Avalon)
-![](https://raw.githubusercontent.com/joshuaavalon/Jekyll-Avalon/master/_screenshot/001.png)
+# Mediumish - Jekyll Theme
 
-## About
-Jekyll-Avalon is a [Materialize](https://github.com/dogfalo/materialize) Jekyll theme.
+[Live Demo](https://wowthemesnet.github.io/mediumish-theme-jekyll/) &nbsp; | &nbsp; [Download](https://github.com/wowthemesnet/mediumish-theme-jekyll/archive/master.zip) &nbsp; | &nbsp; [Documentation](https://bootstrapstarter.com/template-mediumish-bootstrap-jekyll/) &nbsp; | &nbsp; [Buy me a coffee](https://www.wowthemes.net/donate/)
 
-Featuring:
-* Material Design
-* Responsive Web Design
-* Tags and categories browsing
-* Lazy loading images
+![mediumish](assets/images/mediumish-jekyll-template.png)
 
-## Installation
-This theme **CANNOT** be built by GitHub. You have to build it yourself.
-Please follows the following question.
 
-1. Are you willing to do extra works other than just blogging?
+### Copyright
 
- Yes > 3
- 
- No > 2
+Copyright (C) 2019 Sal, https://www.wowthemes.net
 
-2. Are you willing to other git service like GitLab?
+**Mediumish for Jekyll** is designed and developed by [Sal](https://www.wowthemes.net) and it is *free* under MIT license. 
 
- Yes > Upload this repository to GitLab. It will auto-deploy like GitHub. Make sure you have turn on the GitLab Runner.
- 
- No > This theme is not for you.
+<a href="https://www.wowthemes.net/donate/" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
-3. Install Ruby if you don't have it. In you are using Windows, you may want to try [Ruby Installer](http://rubyinstaller.org/).
+### Contribute
 
-4. Install Jekyll and Bundler if you don't have it. Run the following commands in command prompt to install the packages.
- ```
- gem install jekyll bundler
- ```
+1. [Fork the repo](https://github.com/wowthemesnet/mediumish-theme-jekyll).
+2. Clone a copy of your fork on your local
+3. Create a branch off of master and give it a meaningful name (e.g. my-new-mediumish-feature).
+4. Make necessary changes, commit, push and open a pull request on GitHub.
 
-5. cd to your repository directory. Run the following command in command prompt to build.
- ```
- bundle exec jekyll serve
- ```
-6. Upload the content in `_site` to GitHub or your host.
-
-## Config
-Change everything you need in `_config.yml`. Change the footer in `_includes/footer.html`.
-
-If you want to change the color, go [here](https://github.com/dogfalo/materialize) to download SASS version 
-and replace the link in `_includes/head.html`.
-
-For comment support, you can use [Disqus](https://disqus.com/) and add the embed code to `_layouts/post.html`.
-Same for Google Analytics, add the embed code to `_includes/script.html`.
-
-## Post
-All the usable fields available are in `2016-10-27-welcome-to-jekyll.markdown`.
+Thank you!
