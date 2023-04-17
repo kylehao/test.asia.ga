@@ -2,28 +2,23 @@
 layout: default
 ---
 
-<div class="post-content">
-  <h1>
-    {{ page.title }}
-  </h1>
-  {% if site.hide_post_date != true %}
-    {% include post-date.html %}
-  {% endif %}
-  {% if page.image %}
-    <div class="featured-image">
-      <img src="{{ site.github.url }}/assets/img/{{ page.image }}">
-    </div>
-  {% endif %}
-  <article>
-    {{ content }}
-  </article>
-  {% if site.hide_post_share != true %}
-    {% include post-share.html %}
-  {% endif %}
-  {% if site.hide_related_posts != true %}
-    {% include related-posts.html %}
-  {% endif %}
-  {% if site.data.settings.disqus.comments %}
-    {% include disqus.html %}
-  {% endif %}
+<div id='top' class="main-content">
+   
+    <article class="module color-3">
+       
+        <h1>{{ page.title }}{{ page.shortUrl }}</h1>
+        <div class='separator'></div>
+        
+        {{ content }}
+        
+        <p class="top"><small><a href="#top">[top]</a></small></p>
+        
+    </article>
+    
+    {% if site.enable-share %} {% include share.html %} {% endif %}
+    {% if site.disqus-id %} {% include comments.html %} {% endif %}
+
 </div>
+
+
+
