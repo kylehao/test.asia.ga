@@ -1,41 +1,92 @@
-# resumecard
--------
-resumecard is a theme built on top of bootstrap and other freely available libraries. Its aimed to provide a fully furnished Jekyll theme for personal resume.  
+# Theme pinghsu-jekyll
 
-[![Build Status](https://travis-ci.org/ddbullfrog/resumecard.svg?branch=gh-pages)](https://travis-ci.org/ddbullfrog/resumecard)
+a jekyll theme which is based on a typecho theme pinghsu
 
-## Demo
--------
-You can see the live demo of [resumecard](https://ddbullfrog.github.io/resumecard)
+## Preview
 
-This is the web page on desktop browser.
+[Lightfish Blog](http://lightfish.cn)
 
-![Desktop](https://github.com/ddbullfrog/resumecard/blob/gh-pages/_assets/normal.jpg)
+![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview.png)
 
-## Getting Started
--------
-- [Fork this repository](https://github.com/ddbullfrog/resumecard/fork)
-- Clone it: `git clone https://github.com/YOUR-USER/resumecard`
-- Run the jekyll server: `jekyll serve`
+![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview2.png)
 
-You should have a server up and running locally at <http://localhost:4000>.
+![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview3.png)
 
-## Features
--------
-- Responsive Jekyll theme
-- Easy integration with Google Analytics
+## How to start
 
-## Configuration
--------
-- _config.yml
--  CNAME
-	If you're using it on GitHub Pages with a custom domain name, 
-	you'll want to change it to be the domain you're going to use. 
-	All that should be in here is a domain name on the first line and nothing else (like: `example.com`).
--  avatar.JPG
-	This is a smaller version of my gravatar for use as the icon in your browser's address bar. 
-	You should change it to whatever you'd like.
+- fill the file `_config.yml`
 
-## License
--------
-Open sourced under the [MIT license](LICENSE.md).
+example
+
+```yaml
+name: A Blog
+author: Lightfish Zhang
+url: https://lightfish-zhang.github.io
+resume_site: https://lightfish-zhang.github.io
+baseurl: 
+description: you website desc
+github_username: lightfish-zhang
+github: https://github.com/lightfish-zhang
+plugins: [jekyll-paginate]
+permalink: /:year-:month-:day-:title
+paginate: 12
+paginate_path: "/page/:num/"
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+highlighter: rouge
+markdown: kramdown
+comments :
+  gitalk :
+    clientID : xxx
+    clientSecret : xxx
+    repo : lightfish-zhang.github.io
+    owner : lightfish-zhang
+    admin : lightfish-zhang
+
+```
+
+- add your post in path `./_post`, format : 
+
+```md
+---
+layout: post
+title: A Example Post
+date:   1970-01-01 00:00:00 +0800
+category: tutorial
+thumbnail: /style/image/thumbnail.jpg
+icon: book
+---
+
+
+* content
+{:toc}
+
+## sub title
+
+page...
+
+## about thumbnail
+
+add the thumbnail url
+
+## about icon
+
+such as book, code, web, chat, note, game, link, design, image
+```
+
+some config about gitalk, please reference to [gitalk](https://github.com/gitalk/gitalk)
+
+run `bundle install` and `jekyll server` to preview site on you computer, more question about jekyll, reference to [jekyll](http://jekyllrb.com)
+
+
+
+## Developer
+
+- [chakhsu](https://github.com/chakhsu)
+- [lightfish-zhang](https://github.com/lightfish-zhang)
+
+## Thanks
+
+- [jekyll](http://jekyllrb.com) git page engine
+- [pinghsu](https://github.com/chakhsu/pinghsu), a typecho theme, it's a great design.
+- [gitalk](https://github.com/gitalk/gitalk) git page comment engine, it depends on github issue.
+- [smoothscroll](https://www.smoothscroll.net/mac/) SmoothScroll will give your mouse wheel (Finder, Safari, Chrome, etc.) buttery smooth scrolling
