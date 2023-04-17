@@ -1,9 +1,11 @@
-baseurl: "/" # The subpath of your site. Use "" if you're hosting a blog at the root level.
-url: "/" # the base hostname & protocol for your site
-
-exclude:
-  - "README.md"
-  - "CHANGELOG.md"
-  - "CNAME"
-  - "Gemfile"
-  - "Gemfile.lock"
+permalink: /:categories/:title/
+url: "http://example.com"
+full_name: "Saigon Jekyll Theme"
+first_name: "Just"
+last_name: "Me"
+blog_title: "Title"
+author_img_name_path: "/images/users/user.jpg"
+disqus_shortname: "example"
+copyright_year: "2016"
+google_analytics_code: ""
+aboutme: "I like ramen noodles with cream."

@@ -1,92 +1,20 @@
-# Theme pinghsu-jekyll
+##Saigon - Mansonry Jekyll Blog Theme
 
-a jekyll theme which is based on a typecho theme pinghsu
+* Color palette of http://clrs.cc
+* Demo http://hoffli.github.io/saigon-jekyll-theme/
 
-## Preview
+Based on a jekyll mansonry theme by Pasindu:
 
-[Lightfish Blog](http://lightfish.cn)
+* Original demo - http://pasindud.github.io/
+* Dev by Pasindu De Silva
+* Authored by [Arunoda](https://github.com/arunoda)
 
-![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview.png)
+##License
 
-![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview2.png)
+The MIT License (MIT)
 
-![Screenshot](https://raw.githubusercontent.com/lightfish-zhang/pinghsu-jekyll/master/preview3.png)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-## How to start
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-- fill the file `_config.yml`
-
-example
-
-```yaml
-name: A Blog
-author: Lightfish Zhang
-url: https://lightfish-zhang.github.io
-resume_site: https://lightfish-zhang.github.io
-baseurl: 
-description: you website desc
-github_username: lightfish-zhang
-github: https://github.com/lightfish-zhang
-plugins: [jekyll-paginate]
-permalink: /:year-:month-:day-:title
-paginate: 12
-paginate_path: "/page/:num/"
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
-highlighter: rouge
-markdown: kramdown
-comments :
-  gitalk :
-    clientID : xxx
-    clientSecret : xxx
-    repo : lightfish-zhang.github.io
-    owner : lightfish-zhang
-    admin : lightfish-zhang
-
-```
-
-- add your post in path `./_post`, format : 
-
-```md
----
-layout: post
-title: A Example Post
-date:   1970-01-01 00:00:00 +0800
-category: tutorial
-thumbnail: /style/image/thumbnail.jpg
-icon: book
----
-
-
-* content
-{:toc}
-
-## sub title
-
-page...
-
-## about thumbnail
-
-add the thumbnail url
-
-## about icon
-
-such as book, code, web, chat, note, game, link, design, image
-```
-
-some config about gitalk, please reference to [gitalk](https://github.com/gitalk/gitalk)
-
-run `bundle install` and `jekyll server` to preview site on you computer, more question about jekyll, reference to [jekyll](http://jekyllrb.com)
-
-
-
-## Developer
-
-- [chakhsu](https://github.com/chakhsu)
-- [lightfish-zhang](https://github.com/lightfish-zhang)
-
-## Thanks
-
-- [jekyll](http://jekyllrb.com) git page engine
-- [pinghsu](https://github.com/chakhsu/pinghsu), a typecho theme, it's a great design.
-- [gitalk](https://github.com/gitalk/gitalk) git page comment engine, it depends on github issue.
-- [smoothscroll](https://www.smoothscroll.net/mac/) SmoothScroll will give your mouse wheel (Finder, Safari, Chrome, etc.) buttery smooth scrolling
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
