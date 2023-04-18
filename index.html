@@ -1,27 +1,46 @@
 ---
 layout: default
 ---
-<!--header-->
-<header class="main-header clearfix" role="header">
-  <div class="logo">
-    <a href="https://{{ site.targeturl }}"><em>{{ site.targeturl }}</em></a>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <!-- LEFT HERO -->
+  <div class="sideHeroColumn">
+    {% for item in site.heros %}
+      {% if item.position == 'left' %}
+        {% include article.html item=item %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
   </div>
-</header>
 
-<!-- ***** Main Banner Area Start ***** -->
-<section class="section main-banner" id="top" data-section="section1">
-    <video autoplay muted loop id="bg-video">
-        <source src="assets/images/course-video.mp4" type="video/mp4" />
-    </video>
+  <!-- HERO -->
+  <div class="heroColumn">
+    {% for item in site.heros %}
+      {% if item.position == 'center' %}
+        {% include article.html item=item %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  </div>
 
-    <div class="video-overlay header-text">
-        <div class="caption">
-            <h6>Redirect domain from {{ site.url }} to</h6>
-            <h2><em>{{ site.targeturl }}</h2>
-            <div class="main-button">
-                <div class="scroll-to-section"><a href="https://{{ site.targeturl }}">Continue</a></div>
-            </div>
-        </div>
-    </div>
+  <!-- RIGHT HERO -->
+  <div class="sideHeroColumn">
+    {% for item in site.heros %}
+      {% if item.position == 'right' %}
+        {% include article.html item=item %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  </div>
+
 </section>
 
+<!-- MASONRY SECTION -->
+<section class="masonry">
+  {% for item in site.columns %}
+    <div class="item">
+      {% include article.html item=item %}
+    </div>
+  {% endfor %}
+</section>

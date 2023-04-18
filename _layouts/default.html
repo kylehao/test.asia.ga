@@ -1,26 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+	<head>
+		{% include head.html %}
+	</head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<body>
 
-    <title>tailieubkhn.com</title>
-    
-    <!-- Bootstrap core CSS -->
-    <link href="/{{ site.baseurl }}/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+		{% include header.html %}
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="/{{ site.baseurl }}/css/templatemo-grad-school.css">
-    <link rel="stylesheet" href="/{{ site.baseurl }}/css/owl.css">
-    <link rel="stylesheet" href="/{{ site.baseurl }}/css/lightbox.css">
-  </head>
+		<div class="content">
+			{{ content }}
+		</div>
 
-<body>
-  {{ content }}
-</body>
+	</body>
+
+	{% if page.layout == 'default' %}
+		<footer>
+		  {% include footer.html %}
+		</footer>
+	{% endif %}
+	<p class="love">Made with <i class="fa fa-heart"></i> by <a href="https://alvaroduran.com">Álvaro</a></p>
+
 </html>
