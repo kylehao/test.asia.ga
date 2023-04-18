@@ -1,56 +1,41 @@
-<!doctype html>
-<html lang="en">
-{% include head.html %}
-<body>
-	{% include header.html %}
-	<div class="container">
+<!DOCTYPE html>
+<html>
 
-	{% if page.id %}
-	<p>
-		<strong>{{ page.published | date: '%B %d, %Y' }}</strong> ( last updated : {{ page.date | date: '%B %d, %Y' }} )
-		<br>
-		{% for tag in page.tags %}
-			<a class="label label-default" href="/tags/#{{ tag | slugify }}">{{ tag }}</a>
-		{% endfor %}
-    </p>
-	{%if page.github %}
-	<p>
-    	<a href="{{ page.github }}" class="btn btn-default">
-		    <i class="fa fa-github fa-2x"></i>  {{ page.github }}
-			</a>
-	</p>
-	{% endif %}
-	<hr>
-	<h1>Abstract</h1>
-	{% endif %}
+  {% include head.html %}
 
-	{{ content }}
+  <body>
+     {% include header.html %}
 
+    <div class="col-md-12 blog-theme-class">
+          <!-- Top Blog Header -->
+          <div class="row jumb-bot">
+            <div class="col-md-1"></div>
+            <div class="jumbotron jumb-bot-jumbu col-md-10">
 
-	{% if page.id %}
-	<p>Originally published {{ page.published | date: '%B %d, %Y' }}
-    <br> Latest update {{ page.date | date: '%B %d, %Y' }}</p>
+              <h1>{{site.title}}</h1>
+              <p>{{site.description}}</p>
+            </div>            
+            <div class="col-md-1"></div>
+          </div>
+    </div>
+    <div class="col-md-12">
+        {{ content }}
+    </div>
+    <div class="col-md-12 share-div">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          {% include sharer.html %}
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="col-md-12">
+    {% include footer.html %}
+    </div>
+    <div class="col-md-12">
+    {% include endfooter.html %}
+    </div>
+    {% include include_js.html %}
+    
+  </body>
 
-    <p><strong>Related posts :</strong></p>
-        <ul>
-	    {% for allpost in site.posts %}
-			  {% for tag in page.tags %}
-			  {% if allpost.tags contains tag and allpost.id != page.id %}
-			  <li>
-			      <a href="{{ allpost.url }}">
-			        {{ allpost.title }}
-			      </a>
-			  </li>
-			  {% break %}
-			  {% endif %}
-			  {% endfor %}
-		{% endfor %}
-		</ul>
-	{% endif %}
-
-	{% include disqus.html %}
-	</div>
-	{% include footer.html %}
-	{% include analytics.html %}
-</body>
 </html>
