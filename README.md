@@ -1,8 +1,5 @@
-# My Blog...
+# urban-theme
 
-...On IT tech, personal thoughts and so on...
+This theme is a Jekyll port of http://erosie.net/ with some modifications. It is designed for visual artists.
 
-Built on github pages, powered by jekyll. Served at <https://unifreak.github.io>.
-
-If you are insterested in the blog's jekyll theme, see [jekyll-theme-textalic](https://github.com/UniFreak/jekyll-theme-textalic).
-
+Live-Demo: https://narkotyk.netlify.app
